@@ -1,0 +1,30 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SmartSys.ucRecursos"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+
+	<Grid x:Name="LayoutRoot">
+		<DockPanel Margin="0">
+			<Grid Margin="0" Width="120" HorizontalAlignment="Left">
+				<Button x:Name="btnTipoConsumidor" Content="Tipo Consumidor" Height="60" Margin="10,10,0,10" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left" Click="btnTipoConsumidor_Click"/>
+				<Button x:Name="btnTratador" Content="Tratador" Height="60" Margin="10,80,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left" Click="btnTratador_Click"/>
+				<Button x:Name="btnAgua" Content="Tipo Água" Height="60" Margin="10,150,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left" Click="btnAgua_Click"/>
+				<Button x:Name="btnMaterial" Content="Revestimento" Margin="10,220,0,197" Width="110" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnMaterial_Click"/>
+				<Button x:Name="btnFiltro" Content="Filtros" Height="60" Margin="10,290,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left" Click="btnFiltro_Click"/>
+				<Button x:Name="btnProdutos" Content="Produtos" Height="60" Margin="10,360,0,0" VerticalAlignment="Top" Width="110" HorizontalAlignment="Left" Click="btnProdutos_Click"/>
+			</Grid>
+			<Grid x:Name="grdContent" Margin="0" Visibility="Hidden">
+				<DataGrid x:Name="dtgRecursos" Margin="10,83,10,10" MouseDoubleClick="dtgRecursos_MouseDoubleClick"/>
+				<Button x:Name="btnNovo" Content="Novo" HorizontalAlignment="Right" Height="60" Margin="0,10,150,0" VerticalAlignment="Top" Width="60" Click="btnNovo_Click"/>
+				<Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Right" Height="60" Margin="0,10,80,0" VerticalAlignment="Top" Width="60" Click="btnAlterar_Click"/>
+				<Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Height="60" Margin="0,10,10,0" VerticalAlignment="Top" Width="60" Click="btnExcluir_Click"/>
+                <Label x:Name="lblRecurso" Content="Label" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" FontSize="16"/>
+            </Grid>
+		</DockPanel>
+	</Grid>
+</UserControl>

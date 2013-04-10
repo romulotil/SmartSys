@@ -1,0 +1,190 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Context="clr-namespace:SmartSys.Models"
+    xmlns:Debug="clr-namespace:SmartSys"
+    mc:Ignorable="d"
+	x:Class="SmartSys.frmCadastroConsumidor"
+	x:Name="Window"
+	Title="Cadastro de Consumidor"
+	Width="750" Height="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+    Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}"
+    Icon="/SmartSys;component/Images/Icone.ico">
+    
+    <Window.Resources>
+        
+        <Context:SmartSysContext x:Key="Smart"/>
+        <Debug:DebugConverter x:Key="debug"/>
+        <DataTemplate x:Key="TemplateProdutos">
+            <Grid>
+                <TextBlock Text="{Binding Produto}" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<TabControl Margin="10,10,10,46">
+			<TabItem Header="Consumidor">
+				<Grid Background="#FFE5E5E5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.6*"/>
+						<ColumnDefinition Width="0.15*"/>
+						<ColumnDefinition Width="0.15*"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Nome:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+					<TextBox x:Name="txtNome" Height="25" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding Nome, Mode=TwoWay}"/>
+					<Label Content="Endereço:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtEndereco" Height="25" Margin="10,85,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding Endereco, Mode=TwoWay}"/>
+					<Label Content="Nº.:" HorizontalAlignment="Left" Height="25" Margin="10,110,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtNumero" Height="25" Margin="10,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="60" HorizontalAlignment="Left" Text="{Binding Numero, Mode=TwoWay}"/>
+					<Label Content="Compl.:" HorizontalAlignment="Left" Margin="80,110,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtComplemento" Height="25" Margin="80,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" HorizontalAlignment="Left" Text="{Binding Complemento, Mode=TwoWay}"/>
+					<Label Content="Bairro:" Height="25" Margin="210,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtBairro" Height="25" Margin="210,135,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding Bairro, Mode=TwoWay}"/>
+					<Label Content="Cidade:" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtCidade" Height="25" Margin="10,185,180,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding Cidade, Mode=TwoWay}"/>
+					<Label Content="UF:" Margin="0,160,120,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50"/>
+					<Label Content="CEP:" Margin="0,160,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100"/>
+                    <TextBox x:Name="txtCEP" Height="25" Margin="0,185,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Right" Text="{Binding CEP, Mode=TwoWay}"/>
+                    <ComboBox x:Name="txtUF" Margin="0,185,120,0" VerticalAlignment="Top" Height="25" Width="50" HorizontalAlignment="Right" Text="{Binding UF, Mode=TwoWay}">
+						<ComboBoxItem Content="AC"/>
+						<ComboBoxItem Content="AL"/>
+						<ComboBoxItem Content="AM"/>
+						<ComboBoxItem Content="AP"/>
+						<ComboBoxItem Content="BA"/>
+						<ComboBoxItem Content="CE"/>
+						<ComboBoxItem Content="DF"/>
+						<ComboBoxItem Content="ES"/>
+						<ComboBoxItem Content="GO"/>
+						<ComboBoxItem Content="MA"/>
+						<ComboBoxItem Content="MG"/>
+						<ComboBoxItem Content="MS"/>
+						<ComboBoxItem Content="MT"/>
+						<ComboBoxItem Content="PA"/>
+						<ComboBoxItem Content="PE"/>
+						<ComboBoxItem Content="PI"/>
+						<ComboBoxItem Content="PR"/>
+						<ComboBoxItem Content="RJ"/>
+						<ComboBoxItem Content="RN"/>
+						<ComboBoxItem Content="RO"/>
+						<ComboBoxItem Content="RR"/>
+						<ComboBoxItem Content="RS"/>
+						<ComboBoxItem Content="SC"/>
+						<ComboBoxItem Content="SE"/>
+						<ComboBoxItem Content="SP"/>
+						<ComboBoxItem Content="TO"/>
+					</ComboBox>
+					<Label Content="Telefone:" Margin="10,210,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
+                    <TextBox x:Name="txtTelefone" Height="25" Margin="10,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="90" HorizontalAlignment="Left" Text="{Binding Telefone, Mode=TwoWay}"/>
+					<Label Content="Celular:" Margin="110,210,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
+                    <TextBox x:Name="txtCelular" Height="25" Margin="110,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="90" HorizontalAlignment="Left" Text="{Binding Celular, Mode=TwoWay}"/>
+					<Label Content="Email:" Margin="210,210,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtEmail" Height="25" Margin="210,235,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Text="{Binding Email, Mode=TwoWay}"/>
+					<Label Content="Observações:" Margin="10,260,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
+                    <TextBox x:Name="txtObservacao" Margin="10,285,10,10" TextWrapping="Wrap" Text="{Binding Observacao, Mode=TwoWay}"/>
+                    <CheckBox x:Name="chkNews" Content="Aceita Newsletter" HorizontalAlignment="Left" Margin="210,260,0,0" VerticalAlignment="Top" Height="25" VerticalContentAlignment="Center" IsChecked="{Binding News, Mode=TwoWay}"/>
+					<Label Content="Tipo Consumidor:" Margin="0,10,10.39,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="VerticalAlignment, Width" Height="25"/>
+                    <ComboBox 
+                        x:Name="cbbTipoConsumidor" Margin="0,35,10,0" 
+                        VerticalAlignment="Top" Height="25" Grid.Column="1" 
+                        d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2" 
+                        DisplayMemberPath="TipoConsumidor1" 
+                        SelectedValuePath="CodTipoConsumidor" 
+                        SelectedValue="{Binding CodTipoConsumidor, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoConsumidor, Source={StaticResource Smart}}" />
+					<Label Content="Tratador:" Margin="0,60,56.59,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="VerticalAlignment, Width" Height="25"/>
+					<ComboBox 
+                        x:Name="cbbTratador" Margin="0,85,10,0" 
+                        VerticalAlignment="Top" Height="25" Grid.Column="1" 
+                        d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"
+                        DisplayMemberPath="TipoTratador1" 
+                        SelectedValuePath="CodTipoTratador" 
+                        SelectedValue="{Binding CodTipoTratador, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoTratador, Source={StaticResource Smart}}"/>
+					<Label Content="Tipo de Água:" Margin="0,110,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left"/>
+					<ComboBox 
+                        x:Name="cbbAgua" Margin="0,135,10,0" VerticalAlignment="Top" 
+                        Height="25" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"
+                        DisplayMemberPath="TipoAgua1" 
+                        SelectedValuePath="CodTipoAgua" 
+                        SelectedValue="{Binding CodTipoAgua, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoAgua, Source={StaticResource Smart}}"/>
+					<Label Content="Tipo Piscina:" Margin="0,160,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
+					<ComboBox
+                        x:Name="cbbPiscina" Margin="0,185,10,0" 
+                        VerticalAlignment="Top" Height="25" Grid.Column="1"
+                        DisplayMemberPath="TipoMaterial1" 
+                        SelectedValuePath="CodTipoMaterial" 
+                        SelectedValue="{Binding CodTipoPiscina, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>
+					<Label Content="Tipo Spa:" Margin="0,160,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left" Height="25"/>
+					<ComboBox 
+                        x:Name="cbbSpa" Margin="0,185,10,0"
+                        VerticalAlignment="Top" Height="25" Grid.Column="2"
+                        DisplayMemberPath="TipoMaterial1" 
+                        SelectedValuePath="CodTipoMaterial" 
+                        SelectedValue="{Binding CodTipoSpa, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>
+					<Label Content="Filtro Piscina:" Margin="0,210,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
+					<ComboBox 
+                        x:Name="cbbFiltroPiscina" Margin="0,235,10,0" 
+                        VerticalAlignment="Top" Height="25" Grid.Column="1"
+                        DisplayMemberPath="TipoFiltro1" 
+                        SelectedValuePath="CodTipoFiltro" 
+                        SelectedValue="{Binding CodFiltroPiscina, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>
+					<Label Content="Filtro Spa:" Margin="0,210,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left"/>
+					<ComboBox 
+                        x:Name="cbbFiltroSpa" Margin="0,235,10,0" 
+                        VerticalAlignment="Top" Height="25" Grid.Column="2"
+                        DisplayMemberPath="TipoFiltro1" 
+                        SelectedValuePath="CodTipoFiltro" 
+                        SelectedValue="{Binding CodFiltroSpa, Mode=TwoWay}"
+                        ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>
+					<Label Content="Vol. Piscina:" Margin="0,260,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
+					<Label Content="Vol. Spa:" Margin="0,260,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left"/>
+					<TextBox
+                        x:Name="txtVolPiscina" Height="25" Margin="0,285,10,0"
+                        TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"
+                        Grid.Column="1" Text="{Binding VolPiscina, Mode=TwoWay}"/>
+					<TextBox 
+                        x:Name="txtVolSpa" Height="25" Margin="0,285.96,10,0" 
+                        TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" 
+                        Grid.Column="2" Text="{Binding VolSpa, Mode=TwoWay}"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Produtos">
+				<Grid Background="#FFE5E5E5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="26"/>
+						<RowDefinition Height="10"/>
+						<RowDefinition Height="26"/>
+						<RowDefinition Height="10"/>
+						<RowDefinition Height="26"/>
+						<RowDefinition Height="10"/>
+						<RowDefinition Height="26"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.45*"/>
+						<ColumnDefinition Width="26"/>
+						<ColumnDefinition Width="0.45*"/>
+					</Grid.ColumnDefinitions>
+					<ListBox 
+                        x:Name="lstProdutos" Margin="10" Grid.RowSpan="9"  ItemTemplate="{DynamicResource TemplateProdutos}" />
+					<ListBox 
+                        x:Name="lstProdutosSelecionados" Margin="10" Grid.Column="2" Grid.RowSpan="9" ItemTemplate="{DynamicResource TemplateProdutos}"/>
+					<Button x:Name="btnEnviarTodos" Content="&gt;&gt;" Margin="0" Grid.Column="1" Grid.Row="1" Height="26" VerticalAlignment="Bottom" Click="btnEnviarTodos_Click"/>
+					<Button x:Name="btnEnviar" Content="&gt;" Margin="0" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" Grid.Row="3" Click="btnEnviar_Click"/>
+					<Button x:Name="btnRemover" Content="&lt;" Margin="0" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" Grid.Row="5" Click="btnRemover_Click"/>
+					<Button x:Name="btnRemoverTodos" Content="&lt;&lt;" Margin="0" Grid.Column="1" Grid.Row="7" Click="btnRemoverTodos_Click"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Button x:Name="btnCancelar" Content="Cancelar" Height="26" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="120" HorizontalAlignment="Right" Click="btnCancelar_Click"/>
+		<Button x:Name="btnConfirmar" Content="Confirmar" HorizontalAlignment="Right" Height="26" Margin="0,0,140,10" VerticalAlignment="Bottom" Width="120" Click="btnConfirmar_Click"/>
+	</Grid>
+</Window>

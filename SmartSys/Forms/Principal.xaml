@@ -1,0 +1,19 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SmartSys.Principal"
+	x:Name="Window"
+	Title="SmartSys - Gerenciamento de Consumidores"
+	Width="640" Height="480" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/SmartSys;component/Images/Icone.ico">
+	<DockPanel Margin="0">
+		<Grid Height="60" Margin="0" VerticalAlignment="Top" DockPanel.Dock="Top" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+			<Button x:Name="btnConsumidores" Content="Consumidores" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="btnConsumidores_Click"/>
+			<Button x:Name="btnRelatorios" Content="Relatórios" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="btnRelatorios_Click"/>
+			<Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="40" Width="100" Click="btnSair_Click"/>
+            <Button x:Name="btnRecursos" Content="Recursos" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="btnRecursos_Click"/>
+        </Grid>
+		<DockPanel Margin="0">
+			<Grid x:Name="grdContainer" Margin="0" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+		</DockPanel>
+	</DockPanel>
+</Window>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="dbSmartSys">
+  <DataContextMoniker Name="/dbSmartSysDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" absoluteBounds="3.5, 1.125, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/dbSmartSysDataContext/Consumidor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="789662ff-fec7-4d23-b3a5-cd069a750787" absoluteBounds="3.515, 1.585, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8e9f1c5-a08c-402a-a562-a39c53cd9586" absoluteBounds="0.75, 5.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSmartSysDataContext/TipoTratador" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b8fe924-75a8-49ac-8489-f46c7c4cb045" absoluteBounds="0.765, 6.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b95efab1-529a-46e6-a03b-ea5f886bf124" absoluteBounds="6.25, 3, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/dbSmartSysDataContext/ConsumidorProduto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c96fec8-bd7a-4d9b-9332-f86698c99f9c" absoluteBounds="6.265, 3.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c936360-9ce3-4513-a9b1-b6d6fc67255b" absoluteBounds="3.5, 8.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSmartSysDataContext/Produto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82379629-d395-478f-9b2f-e3f2f5a2befd" absoluteBounds="3.515, 8.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf9cb110-e947-4f5e-8354-5763dee551ab" absoluteBounds="0.75, 7.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSmartSysDataContext/TipoAgua" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3071051-a9ff-40ee-9224-23104b29dc8a" absoluteBounds="0.765, 8.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cadbce86-353b-429e-94c9-6fc503dbf67a" absoluteBounds="0.75, 9.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSmartSysDataContext/TipoConsumidor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="619eff49-4c90-430b-90d1-429ae8636270" absoluteBounds="0.765, 9.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ba24a453-aa24-43ea-ae58-2dd7617bc0cf" absoluteBounds="0.75, 3.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbSmartSysDataContext/TipoFiltro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c44152a9-0e8e-4e12-bc67-3ec87e4e29af" absoluteBounds="0.765, 3.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="90feaa8f-5fc4-4342-9efc-0b37f8e2287a" absoluteBounds="0.75, 11.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbSmartSysDataContext/TipoMaterial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca6db5a9-4df9-4bf0-be8b-415b825a4d11" absoluteBounds="0.765, 11.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.99116129557292); (3.04166666666667 : 5.99116129557291 : JumpStart); (3.42708333333333 : 5.99116129557292 : JumpEnd); (3.5 : 5.99116129557292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoTratador/TipoTratador_Consumidor" />
+      <nodes>
+        <classShapeMoniker Id="e8e9f1c5-a08c-402a-a562-a39c53cd9586" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.69314697265625); (6.25 : 3.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/Consumidor/Consumidor_ConsumidorProduto" />
+      <nodes>
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+        <classShapeMoniker Id="b95efab1-529a-46e6-a03b-ea5f886bf124" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.72199625651042); (7.25 : 8.72199625651042); (7.25 : 4.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/Produto/Produto_ConsumidorProduto" />
+      <nodes>
+        <classShapeMoniker Id="2c936360-9ce3-4513-a9b1-b6d6fc67255b" />
+        <classShapeMoniker Id="b95efab1-529a-46e6-a03b-ea5f886bf124" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.62591745577925); (3.125 : 7.25091745577925); (3.125 : 3.52682864778646); (3.13541666666667 : 3.52682864778646 : JumpStart); (3.42708333333333 : 3.52682864778646 : JumpEnd); (3.5 : 3.52682864778646)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoAgua/TipoAgua_Consumidor" />
+      <nodes>
+        <classShapeMoniker Id="cf9cb110-e947-4f5e-8354-5763dee551ab" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.53122649649439); (3.15982443490112 : 9.12140206159327 : JumpStart); (3.27767556509888 : 9.00355093139551 : JumpEnd); (3.28125 : 8.99997649649439); (3.28125 : 4.75899497167969); (3.5 : 4.75899497167969)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoConsumidor/TipoConsumidor_Consumidor" />
+      <nodes>
+        <classShapeMoniker Id="cadbce86-353b-429e-94c9-6fc503dbf67a" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.98541058040365); (3.04166666666667 : 3.98541058040364 : JumpStart); (3.42708333333333 : 3.98541058040365 : JumpEnd); (3.5 : 3.98541058040365)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoFiltro/TipoFiltro_Consumidor" />
+      <nodes>
+        <classShapeMoniker Id="ba24a453-aa24-43ea-ae58-2dd7617bc0cf" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.26341432389323); (3.13541666666667 : 3.26341432389323 : JumpStart); (3.42708333333333 : 3.26341432389323 : JumpEnd); (3.5 : 3.26341432389323)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoFiltro/TipoFiltro_Consumidor1" />
+      <nodes>
+        <classShapeMoniker Id="ba24a453-aa24-43ea-ae58-2dd7617bc0cf" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.5202050271434); (3.34375 : 10.9264550271434); (3.34375 : 2.16295516194661); (3.5 : 2.16295516194661)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoMaterial/TipoMaterial_Consumidor" />
+      <nodes>
+        <classShapeMoniker Id="90feaa8f-5fc4-4342-9efc-0b37f8e2287a" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.5119389251302); (3.21875 : 11.0431889251302); (3.21875 : 2.16295516194661); (3.5 : 2.16295516194661)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSmartSysDataContext/TipoMaterial/TipoMaterial_Consumidor1" />
+      <nodes>
+        <classShapeMoniker Id="90feaa8f-5fc4-4342-9efc-0b37f8e2287a" />
+        <classShapeMoniker Id="4bbd47e8-ea82-4f53-b711-ac9e484d7da2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

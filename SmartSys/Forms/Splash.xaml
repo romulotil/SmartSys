@@ -1,0 +1,9 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SmartSys.Splash"
+	x:Name="Window"
+	Title="Splash"
+	Width="480" Height="304" AllowsTransparency="True" WindowStyle="None" Left="0" Background="{x:Null}">
+	<Image Source="/SmartSys;component/Images/splash.png" Stretch="Fill"/>
+</Window>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SmartSys" Class="dbSmartSysDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=SmartSys;Persist Security Info=True;User ID=sa" SettingsObjectName="SmartSys.DAL.Properties.Settings" SettingsPropertyName="SmartSysConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Consumidor" Member="Consumidors">
+    <Type Name="Consumidor">
+      <Column Name="CodConsumidor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Bairro" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Cidade" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UF" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="CEP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="News" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Observacao" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CodTipoConsumidor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodTipoTratador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodTipoAgua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodTipoPiscina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodTipoSpa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodFiltroPiscina" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodFiltroSpa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VolPiscina" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="VolSpa" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="Consumidor_ConsumidorProduto" Member="ConsumidorProdutos" ThisKey="CodConsumidor" OtherKey="CodConsumidor" Type="ConsumidorProduto" />
+      <Association Name="TipoTratador_Consumidor" Member="TipoTratador" ThisKey="CodTipoTratador" OtherKey="CodTipoTratador" Type="TipoTratador" IsForeignKey="true" />
+      <Association Name="TipoAgua_Consumidor" Member="TipoAgua" ThisKey="CodTipoAgua" OtherKey="CodTipoAgua" Type="TipoAgua" IsForeignKey="true" />
+      <Association Name="TipoConsumidor_Consumidor" Member="TipoConsumidor" ThisKey="CodTipoConsumidor" OtherKey="CodTipoConsumidor" Type="TipoConsumidor" IsForeignKey="true" />
+      <Association Name="TipoFiltro_Consumidor" Member="TipoFiltro" ThisKey="CodFiltroPiscina" OtherKey="CodTipoFiltro" Type="TipoFiltro" IsForeignKey="true" />
+      <Association Name="TipoFiltro_Consumidor1" Member="TipoFiltro1" ThisKey="CodFiltroSpa" OtherKey="CodTipoFiltro" Type="TipoFiltro" IsForeignKey="true" />
+      <Association Name="TipoMaterial_Consumidor" Member="TipoMaterial" ThisKey="CodTipoPiscina" OtherKey="CodTipoMaterial" Type="TipoMaterial" IsForeignKey="true" />
+      <Association Name="TipoMaterial_Consumidor1" Member="TipoMaterial1" ThisKey="CodTipoSpa" OtherKey="CodTipoMaterial" Type="TipoMaterial" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoTratador" Member="TipoTratadors">
+    <Type Name="TipoTratador">
+      <Column Name="CodTipoTratador" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoTratador" Member="TipoTratador1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TipoTratador_Consumidor" Member="Consumidors" ThisKey="CodTipoTratador" OtherKey="CodTipoTratador" Type="Consumidor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConsumidorProduto" Member="ConsumidorProdutos">
+    <Type Name="ConsumidorProduto">
+      <Column Name="CodConsumidorProduto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodConsumidor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Consumidor_ConsumidorProduto" Member="Consumidor" ThisKey="CodConsumidor" OtherKey="CodConsumidor" Type="Consumidor" IsForeignKey="true" />
+      <Association Name="Produto_ConsumidorProduto" Member="Produto" ThisKey="CodProduto" OtherKey="CodProduto" Type="Produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produtos" Member="Produtos">
+    <Type Name="Produto">
+      <Column Name="CodProduto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Produto" Member="Produto1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Produto_ConsumidorProduto" Member="ConsumidorProdutos" ThisKey="CodProduto" OtherKey="CodProduto" Type="ConsumidorProduto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoAgua" Member="TipoAguas">
+    <Type Name="TipoAgua">
+      <Column Name="CodTipoAgua" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoAgua" Member="TipoAgua1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TipoAgua_Consumidor" Member="Consumidors" ThisKey="CodTipoAgua" OtherKey="CodTipoAgua" Type="Consumidor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoConsumidor" Member="TipoConsumidors">
+    <Type Name="TipoConsumidor">
+      <Column Name="CodTipoConsumidor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoConsumidor" Member="TipoConsumidor1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TipoConsumidor_Consumidor" Member="Consumidors" ThisKey="CodTipoConsumidor" OtherKey="CodTipoConsumidor" Type="Consumidor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoFiltro" Member="TipoFiltros">
+    <Type Name="TipoFiltro">
+      <Column Name="CodTipoFiltro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoFiltro" Member="TipoFiltro1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TipoFiltro_Consumidor" Member="Consumidors" ThisKey="CodTipoFiltro" OtherKey="CodFiltroPiscina" Type="Consumidor" />
+      <Association Name="TipoFiltro_Consumidor1" Member="Consumidors1" ThisKey="CodTipoFiltro" OtherKey="CodFiltroSpa" Type="Consumidor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoMaterial" Member="TipoMaterials">
+    <Type Name="TipoMaterial">
+      <Column Name="CodTipoMaterial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoMaterial" Member="TipoMaterial1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TipoMaterial_Consumidor" Member="Consumidors" ThisKey="CodTipoMaterial" OtherKey="CodTipoPiscina" Type="Consumidor" />
+      <Association Name="TipoMaterial_Consumidor1" Member="Consumidors1" ThisKey="CodTipoMaterial" OtherKey="CodTipoSpa" Type="Consumidor" />
+    </Type>
+  </Table>
+</Database>

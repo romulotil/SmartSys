@@ -55,20 +55,20 @@ namespace SmartSys
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    MLConsumidor index = (MLConsumidor)dtgConsumidores.SelectedItem;
-            //    if (MessageBox.Show("Excluir o registro selecionado?", "SmartSys", MessageBoxButton.YesNo, MessageBoxImage.Warning).Equals(MessageBoxResult.Yes))
-            //    {
-            //        context.Consumidors.Remove(index);
-            //        context.SaveChanges();
-            //        MessageBox.Show("Registro excluído com sucesso.", "SmartSys", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ocorreu um erro durante a execução.\nErro: " + ex.Message, "SmartSys", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            try
+            {
+                MLConsumidor index = (MLConsumidor)dtgConsumidores.SelectedItem;
+                if (MessageBox.Show("Excluir o registro selecionado?", "SmartSys", MessageBoxButton.YesNo, MessageBoxImage.Warning).Equals(MessageBoxResult.Yes))
+                {
+                    new DLConsumidor().Delete(index.CodConsumidor);
+                    MessageBox.Show("Registro excluído com sucesso.", "SmartSys", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                CarregaLista();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro durante a execução.\nErro: " + ex.Message, "SmartSys", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void dtgConsumidores_MouseDoubleClick(object sender, MouseButtonEventArgs e)

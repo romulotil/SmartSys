@@ -89,13 +89,17 @@ namespace SmartSys.DAL
             {
                 myCommand.Connection.Open();
                 myDataReader = myCommand.ExecuteReader();
+
+                return myDataReader;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
-            return myDataReader;
+            finally
+            {
+                myCommand.Connection.Close();
+            }
         }
 
         internal void exCommand(string sql)
@@ -132,11 +136,16 @@ namespace SmartSys.DAL
                     myCommand.Connection.Open();
                     myCommand.Transaction = myCommand.Connection.BeginTransaction();
                 }
+
                 myCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                myCommand.Connection.Close();
             }
         } 
 

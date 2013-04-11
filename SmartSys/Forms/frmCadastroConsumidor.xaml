@@ -165,8 +165,8 @@
 						<RowDefinition Height="10"/>
 						<RowDefinition Height="26"/>
 						<RowDefinition Height="10"/>
-						<RowDefinition Height="26"/>
-						<RowDefinition/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition/>
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="0.45*"/>

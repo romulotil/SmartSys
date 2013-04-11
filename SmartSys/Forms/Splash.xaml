@@ -4,6 +4,6 @@
 	x:Class="SmartSys.Splash"
 	x:Name="Window"
 	Title="Splash"
-	Width="480" Height="304" AllowsTransparency="True" WindowStyle="None" Left="0" Background="{x:Null}">
+	Width="480" Height="304" AllowsTransparency="True" WindowStyle="None" Left="0" Background="{x:Null}" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False">
 	<Image Source="/SmartSys;component/Images/splash.png" Stretch="Fill"/>
 </Window>

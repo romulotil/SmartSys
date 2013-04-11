@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,16 +13,24 @@ using System.Windows.Shapes;
 
 namespace SmartSys
 {
-	/// <summary>
-	/// Interaction logic for Principal.xaml
-	/// </summary>
 	public partial class Principal : Window
 	{
 		public Principal()
 		{
+            Splash splash = new Splash();
+            splash.Show();
+            Thread.Sleep(5000);
+            splash.Close();
+
 			this.InitializeComponent();
-			
-			// Insert code required on object creation below this point.
+            //Thread th = new Thread(() =>
+            //{
+            //    Splash splash = new Splash();
+            //    splash.Show();
+            //    Thread.Sleep(5000);
+            //});
+
+            //th.Start();
 		}
 
         private void btnSair_Click(object sender, RoutedEventArgs e)
@@ -51,6 +60,11 @@ namespace SmartSys
             ucRecursos rec = new ucRecursos();
             grdContainer.Children.Clear();
             grdContainer.Children.Add(rec);
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 	}
 }

@@ -49,13 +49,16 @@ namespace SmartSys.DAL
                     dbCon.UF = obj.UF;
                     dbCon.VolPiscina = obj.VolPiscina;
                     dbCon.VolSpa = obj.VolSpa;
-
+                    
                     dbContext.Consumidors.InsertOnSubmit(dbCon);
                     dbContext.Consumidors.Context.SubmitChanges();
 
+                    string sql = "select MAX(CodConsumidor) as MaxCode from " + tblConsumidor;
+                    int maxCode = Convert.ToInt32(exQuery(sql).Rows[0]["MaxCode"]);
+
                     foreach (MLConsumidorProduto cp in obj.ListaConsumidorProduto)
                     {
-                        cp.CodConsumidor = dbContext.Consumidors.Last().CodConsumidor;
+                        cp.CodConsumidor = maxCode;
                         new DLConsumidorProduto().InsertUpdate(cp);
                     }
                 }
@@ -93,12 +96,12 @@ namespace SmartSys.DAL
 
                     dbContext.Consumidors.Context.SubmitChanges();
 
+                    DLConsumidorProduto DL = new DLConsumidorProduto();
+                    DL.ClearExisting(obj.CodConsumidor);
+
                     foreach (MLConsumidorProduto cp in obj.ListaConsumidorProduto)
                     {
-                        cp.CodConsumidor = obj.CodConsumidor;
-
-                        DLConsumidorProduto DL = new DLConsumidorProduto();
-                        DL.ClearExisting(obj.CodConsumidor);
+                        cp.CodConsumidor = obj.CodConsumidor;                        
                         DL.InsertUpdate(cp);                        
                     }
                 }
@@ -176,6 +179,25 @@ namespace SmartSys.DAL
             objSqlCommand.Connection.Close();
 
             return list;
+        }
+
+        public void Delete(int index)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                sb.Append("DELETE FROM ").Append(tblConsumidorProduto).Append(" WHERE CodConsumidor = ").Append(index);
+                exCommand(sb.ToString());
+
+                sb.Clear();
+
+                sb.Append("DELETE FROM ").Append(tblConsumidor).Append(" WHERE CodConsumidor = ").Append(index);
+                exCommand(sb.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

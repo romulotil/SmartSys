@@ -16,13 +16,13 @@
 			<Button x:Name="btnExcluir" Content="Excluir" Height="60" Margin="10,150,0,0" VerticalAlignment="Top" Width="60" Click="btnExcluir_Click"/>
         </Grid>
 		<Grid Margin="0">
-			<DataGrid x:Name="dtgConsumidores" Margin="10" MouseDoubleClick="dtgConsumidores_MouseDoubleClick">
+			<DataGrid x:Name="dtgConsumidores" Margin="10" MouseDoubleClick="dtgConsumidores_MouseDoubleClick" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Cod." Binding="{Binding CodConsumidor}" Visibility="Hidden"/>
-                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                    <DataGridTextColumn Header="Cidade" Binding="{Binding Cidade}"/>
-                    <DataGridTextColumn Header="UF" Binding="{Binding UF}"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Cod. " Binding="{Binding CodConsumidor}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="Nome " Binding="{Binding Nome}" Width="*"/>
+                    <DataGridTextColumn Header="Cidade " Binding="{Binding Cidade}" Width="180"/>
+                    <DataGridTextColumn Header="UF " Binding="{Binding UF}" Width="40" />
+                    <DataGridTextColumn Header="Email " Binding="{Binding Email}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

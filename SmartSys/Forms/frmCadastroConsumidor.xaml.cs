@@ -44,7 +44,7 @@ namespace SmartSys
         private void CarregarListas()
         {
             produtos = new DLProduto().List();
-            if (Consumidor.ListaConsumidorProduto.Count < 0)
+            if (Consumidor.ListaConsumidorProduto.Count > 0)
             {
                 foreach (MLConsumidorProduto cp in Consumidor.ListaConsumidorProduto)
                 {
@@ -60,7 +60,15 @@ namespace SmartSys
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
             DLConsumidor DL = new DLConsumidor();
-            DL.InsertUpdateConsumidor(Consumidor);
+            try
+            {
+                DL.InsertUpdateConsumidor(Consumidor);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro durante a execução.\nErro: " + ex.Message, "SmartSys", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

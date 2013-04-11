@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,8 +21,16 @@ namespace SmartSys
 		public Splash()
 		{
 			this.InitializeComponent();
-			
-			// Insert code required on object creation below this point.
+            //Loaded += Splash_Loaded;
 		}
+
+        private void Splash_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Thread.Sleep(5000);
+            //new Principal().Show();
+            //this.Close();
+            
+
+        }
 	}
 }

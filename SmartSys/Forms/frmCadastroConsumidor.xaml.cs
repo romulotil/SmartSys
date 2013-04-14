@@ -59,16 +59,70 @@ namespace SmartSys
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            DLConsumidor DL = new DLConsumidor();
-            try
+            if (ValidarCadastro())
             {
-                DL.InsertUpdateConsumidor(Consumidor);
-                this.Close();
+                DLConsumidor DL = new DLConsumidor();
+                try
+                {
+                    DL.InsertUpdateConsumidor(Consumidor);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro durante a execução.\nErro: " + ex.Message, "SmartSys", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ocorreu um erro durante a execução.\nErro: " + ex.Message, "SmartSys", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+        }
+
+        private bool ValidarCadastro()
+        {
+            StringBuilder sb = new StringBuilder("Campos obrigatórios:\n");
+            if (string.IsNullOrEmpty(Consumidor.Nome))
+            {
+                sb.Append("- Nome;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodFiltroPiscina <= 0)
+            {
+                sb.Append("- Tipo do filtro;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+            if (Consumidor.CodTipoConsumidor <= 0)
+            {
+                sb.Append("- Tipo do consumidor;\n");
+            }
+
+            return true;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

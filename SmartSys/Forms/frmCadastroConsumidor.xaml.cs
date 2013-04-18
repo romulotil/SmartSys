@@ -22,23 +22,66 @@ namespace SmartSys
 	/// </summary>
 	public partial class frmCadastroConsumidor : Window
 	{
+        #region Fields and Properties
+
         public string _operacao;
         public MLConsumidor Consumidor { get; set; }
         public List<MLConsumidorProduto> consumidorprodutos { get; set; }
         public List<MLProduto> produtos = new List<MLProduto>();
-        public ObservableCollection<MLProduto> produtosSelecionados = new ObservableCollection<MLProduto>();
-        
-		public frmCadastroConsumidor()
+        public ObservableCollection<MLProduto> produtosSelecionados = new ObservableCollection<MLProduto>(); 
+
+        #endregion
+
+        #region Constructors
+
+        public frmCadastroConsumidor()
         {
-            this.InitializeComponent();          
-		}
+            this.InitializeComponent();
+        }
 
         public frmCadastroConsumidor(MLConsumidor cons)
         {
             Consumidor = cons;
             this.DataContext = Consumidor;
             this.InitializeComponent();
+            CarregarCombos();
             CarregarListas();
+        } 
+
+        #endregion
+
+        #region Methods
+
+        private void CarregarCombos()
+        {
+            cbbTipoConsumidor.ItemsSource = new DLTipoConsumidor().List();
+            cbbTipoConsumidor.SelectedValuePath = "CodTipoConsumidor";
+            cbbTipoConsumidor.DisplayMemberPath = "TipoConsumidor";
+
+            cbbTratador.ItemsSource = new DLTipoTratador().List();
+            cbbTratador.SelectedValuePath = "CodTipoTratador";
+            cbbTratador.DisplayMemberPath = "TipoTratador";
+
+            cbbAgua.ItemsSource = new DLTipoAgua().List();
+            cbbAgua.SelectedValuePath = "CodTipoAgua";
+            cbbAgua.DisplayMemberPath = "TipoAgua";
+
+            cbbFiltroPiscina.ItemsSource = new DLTipoFiltro().List();
+            cbbFiltroPiscina.SelectedValuePath = "CodTipoFiltro";
+            cbbFiltroPiscina.DisplayMemberPath = "TipoFiltro";
+
+            cbbFiltroSpa.ItemsSource = new DLTipoFiltro().List();
+            cbbFiltroSpa.SelectedValuePath = "CodTipoFiltro";
+            cbbFiltroSpa.DisplayMemberPath = "TipoFiltro";
+
+            cbbPiscina.ItemsSource = new DLTipoMaterial().List();
+            cbbPiscina.SelectedValuePath = "CodTipoMaterial";
+            cbbPiscina.DisplayMemberPath = "TipoMaterial";
+
+            cbbSpa.ItemsSource = new DLTipoMaterial().List();
+            cbbSpa.SelectedValuePath = "CodTipoMaterial";
+            cbbSpa.DisplayMemberPath = "TipoMaterial";
+
         }
 
         private void CarregarListas()
@@ -56,6 +99,37 @@ namespace SmartSys
             lstProdutos.ItemsSource = produtos;
             lstProdutosSelecionados.ItemsSource = produtosSelecionados;
         }
+
+        private bool ValidarCadastro()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (string.IsNullOrEmpty(Consumidor.Nome))
+            {
+                sb.Append("- Nome;\n");
+            }
+            if (string.IsNullOrEmpty(Consumidor.Cidade))
+            {
+                sb.Append("- Cidade;\n");
+            }
+            if (string.IsNullOrEmpty(Consumidor.UF))
+            {
+                sb.Append("- UF;\n");
+            }
+
+            if (!string.IsNullOrEmpty(sb.ToString()))
+            {
+                MessageBox.Show("Campos obrigatórios:\n" + sb.ToString(), "SmartSys", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        } 
+
+        #endregion
+
+        #region Events
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
@@ -76,53 +150,6 @@ namespace SmartSys
             {
                 return;
             }
-        }
-
-        private bool ValidarCadastro()
-        {
-            StringBuilder sb = new StringBuilder("Campos obrigatórios:\n");
-            if (string.IsNullOrEmpty(Consumidor.Nome))
-            {
-                sb.Append("- Nome;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodFiltroPiscina <= 0)
-            {
-                sb.Append("- Tipo do filtro;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-            if (Consumidor.CodTipoConsumidor <= 0)
-            {
-                sb.Append("- Tipo do consumidor;\n");
-            }
-
-            return true;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -175,7 +202,7 @@ namespace SmartSys
                 {
                     produtosSelecionados.Remove(p);
                 }
-                
+
             }
         }
 
@@ -183,6 +210,8 @@ namespace SmartSys
         {
             produtosSelecionados.Clear();
             Consumidor.ListaConsumidorProduto.Clear();
-        }
+        } 
+
+        #endregion
 	}
 }

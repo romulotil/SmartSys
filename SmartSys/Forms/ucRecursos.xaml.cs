@@ -29,8 +29,7 @@ namespace SmartSys
 
         private void dtgRecursos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            frmCadastroRecursos rec = new frmCadastroRecursos(_recurso, dtgRecursos.SelectedItem);
-            rec.ShowDialog();
+            btnAlterar_Click(sender, e);
         }
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
@@ -60,9 +59,9 @@ namespace SmartSys
                             new DLProduto().Delete((MLProduto)dtgRecursos.SelectedItem);
                             break;
                     }
+                    MessageBox.Show("Registro excluído com sucesso.", "SmartSys", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CarregarLista();
                 }
-                MessageBox.Show("Registro excluído com sucesso.", "SmartSys", MessageBoxButton.OK, MessageBoxImage.Information);
-                CarregarLista();
             }
             catch
             {

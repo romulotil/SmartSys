@@ -19,13 +19,13 @@ namespace SmartSys.MDL
         public string Email { get; set; }
         public bool News { get; set; }
         public string Observacao { get; set; }
-        public int CodTipoConsumidor { get; set; }
-        public int CodTipoTratador { get; set; }
-        public int CodTipoAgua { get; set; }
-        public int CodTipoPiscina { get; set; }
-        public int CodTipoSpa { get; set; }
-        public int CodFiltroPiscina { get; set; }
-        public int CodFiltroSpa { get; set; }
+        public Nullable<int> CodTipoConsumidor { get; set; }
+        public Nullable<int> CodTipoTratador { get; set; }
+        public Nullable<int> CodTipoAgua { get; set; }
+        public Nullable<int> CodTipoPiscina { get; set; }
+        public Nullable<int> CodTipoSpa { get; set; }
+        public Nullable<int> CodFiltroPiscina { get; set; }
+        public Nullable<int> CodFiltroSpa { get; set; }
         public string VolPiscina { get; set; }
         public string VolSpa { get; set; }
         public List<MLConsumidorProduto> ListaConsumidorProduto { get; set; }

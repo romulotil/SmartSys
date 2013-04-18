@@ -1,5 +1,4 @@
-﻿using SmartSys.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -23,7 +22,6 @@ namespace SmartSys
 	/// </summary>
 	public partial class ucConsumidores : UserControl
     {
-        SmartSysContext context = new SmartSysContext();
         List<MLConsumidor> listaConsumidor = new List<MLConsumidor>();
 
 		public ucConsumidores()
@@ -62,8 +60,8 @@ namespace SmartSys
                 {
                     new DLConsumidor().Delete(index.CodConsumidor);
                     MessageBox.Show("Registro excluído com sucesso.", "SmartSys", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CarregaLista();
                 }
-                CarregaLista();
             }
             catch (Exception ex)
             {

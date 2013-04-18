@@ -3,7 +3,6 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:Context="clr-namespace:SmartSys.Models"
     xmlns:Debug="clr-namespace:SmartSys"
     mc:Ignorable="d"
 	x:Class="SmartSys.frmCadastroConsumidor"
@@ -15,7 +14,6 @@
     
     <Window.Resources>
         
-        <Context:SmartSysContext x:Key="Smart"/>
         <Debug:DebugConverter x:Key="debug"/>
         <DataTemplate x:Key="TemplateProdutos">
             <Grid>
@@ -48,7 +46,7 @@
 					<Label Content="UF:" Margin="0,160,120,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50"/>
 					<Label Content="CEP:" Margin="0,160,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100"/>
                     <TextBox x:Name="txtCEP" Height="25" Margin="0,185,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="100" HorizontalAlignment="Right" Text="{Binding CEP, Mode=TwoWay}"/>
-                    <ComboBox x:Name="txtUF" Margin="0,185,120,0" VerticalAlignment="Top" Height="25" Width="50" HorizontalAlignment="Right" Text="{Binding UF, Mode=TwoWay}">
+                    <ComboBox x:Name="txtUF" Margin="0,185,120,0" VerticalAlignment="Top" Height="25" Width="50" HorizontalAlignment="Right" SelectedValuePath="Content" SelectedValue="{Binding UF}" >
 						<ComboBoxItem Content="AC"/>
 						<ComboBoxItem Content="AL"/>
 						<ComboBoxItem Content="AM"/>
@@ -90,59 +88,52 @@
                         x:Name="cbbTipoConsumidor" Margin="0,35,10,0" 
                         VerticalAlignment="Top" Height="25" Grid.Column="1" 
                         d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2" 
-                        DisplayMemberPath="TipoConsumidor1" 
-                        SelectedValuePath="CodTipoConsumidor" 
-                        SelectedValue="{Binding CodTipoConsumidor, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoConsumidor, Source={StaticResource Smart}}" />
+                        
+                        SelectedValue="{Binding CodTipoConsumidor, Mode=TwoWay}"/>
+                        <!--ItemsSource="{Binding TipoConsumidor, Source={StaticResource Smart}}" />-->
 					<Label Content="Tratador:" Margin="0,60,56.59,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="VerticalAlignment, Width" Height="25"/>
-					<ComboBox 
+                    <ComboBox 
                         x:Name="cbbTratador" Margin="0,85,10,0" 
                         VerticalAlignment="Top" Height="25" Grid.Column="1" 
                         d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"
-                        DisplayMemberPath="TipoTratador1" 
-                        SelectedValuePath="CodTipoTratador" 
-                        SelectedValue="{Binding CodTipoTratador, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoTratador, Source={StaticResource Smart}}"/>
+                        
+                        SelectedValue="{Binding CodTipoTratador, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoTratador, Source={StaticResource Smart}}"/>-->
 					<Label Content="Tipo de Água:" Margin="0,110,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left"/>
-					<ComboBox 
+                    <ComboBox 
                         x:Name="cbbAgua" Margin="0,135,10,0" VerticalAlignment="Top" 
                         Height="25" Grid.Column="1" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"
-                        DisplayMemberPath="TipoAgua1" 
-                        SelectedValuePath="CodTipoAgua" 
-                        SelectedValue="{Binding CodTipoAgua, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoAgua, Source={StaticResource Smart}}"/>
+                         
+                        SelectedValue="{Binding CodTipoAgua, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoAgua, Source={StaticResource Smart}}"/>-->
 					<Label Content="Tipo Piscina:" Margin="0,160,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
-					<ComboBox
+                    <ComboBox
                         x:Name="cbbPiscina" Margin="0,185,10,0" 
                         VerticalAlignment="Top" Height="25" Grid.Column="1"
-                        DisplayMemberPath="TipoMaterial1" 
-                        SelectedValuePath="CodTipoMaterial" 
-                        SelectedValue="{Binding CodTipoPiscina, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>
+                        
+                        SelectedValue="{Binding CodTipoPiscina, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>-->
 					<Label Content="Tipo Spa:" Margin="0,160,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left" Height="25"/>
-					<ComboBox 
+                    <ComboBox 
                         x:Name="cbbSpa" Margin="0,185,10,0"
                         VerticalAlignment="Top" Height="25" Grid.Column="2"
-                        DisplayMemberPath="TipoMaterial1" 
-                        SelectedValuePath="CodTipoMaterial" 
-                        SelectedValue="{Binding CodTipoSpa, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>
+                        
+                        SelectedValue="{Binding CodTipoSpa, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoMaterial, Source={StaticResource Smart}}"/>-->
 					<Label Content="Filtro Piscina:" Margin="0,210,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
-					<ComboBox 
+                    <ComboBox 
                         x:Name="cbbFiltroPiscina" Margin="0,235,10,0" 
                         VerticalAlignment="Top" Height="25" Grid.Column="1"
-                        DisplayMemberPath="TipoFiltro1" 
-                        SelectedValuePath="CodTipoFiltro" 
-                        SelectedValue="{Binding CodFiltroPiscina, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>
+                        
+                        SelectedValue="{Binding CodFiltroPiscina, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>-->
 					<Label Content="Filtro Spa:" Margin="0,210,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left"/>
-					<ComboBox 
+                    <ComboBox 
                         x:Name="cbbFiltroSpa" Margin="0,235,10,0" 
                         VerticalAlignment="Top" Height="25" Grid.Column="2"
-                        DisplayMemberPath="TipoFiltro1" 
-                        SelectedValuePath="CodTipoFiltro" 
-                        SelectedValue="{Binding CodFiltroSpa, Mode=TwoWay}"
-                        ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>
+                         
+                        SelectedValue="{Binding CodFiltroSpa, Mode=TwoWay}"/>
+                    <!--ItemsSource="{Binding TipoFiltro, Source={StaticResource Smart}}"/>-->
 					<Label Content="Vol. Piscina:" Margin="0,260,0,0" VerticalAlignment="Top" Grid.Column="1" d:LayoutOverrides="Width" HorizontalAlignment="Left" Height="25"/>
 					<Label Content="Vol. Spa:" Margin="0,260,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left"/>
 					<TextBox

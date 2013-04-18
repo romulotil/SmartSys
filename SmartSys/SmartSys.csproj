@@ -86,23 +86,6 @@
     <Compile Include="Forms\ucRelatorio.xaml.cs">
       <DependentUpon>ucRelatorio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Consumidor.cs" />
-    <Compile Include="Models\ConsumidorProduto.cs" />
-    <Compile Include="Models\Mapping\ConsumidorMap.cs" />
-    <Compile Include="Models\Mapping\ConsumidorProdutoMap.cs" />
-    <Compile Include="Models\Mapping\ProdutoMap.cs" />
-    <Compile Include="Models\Mapping\TipoAguaMap.cs" />
-    <Compile Include="Models\Mapping\TipoConsumidorMap.cs" />
-    <Compile Include="Models\Mapping\TipoFiltroMap.cs" />
-    <Compile Include="Models\Mapping\TipoMaterialMap.cs" />
-    <Compile Include="Models\Mapping\TipoTratadorMap.cs" />
-    <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\SmartSysContext.cs" />
-    <Compile Include="Models\TipoAgua.cs" />
-    <Compile Include="Models\TipoConsumidor.cs" />
-    <Compile Include="Models\TipoFiltro.cs" />
-    <Compile Include="Models\TipoMaterial.cs" />
-    <Compile Include="Models\TipoTratador.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
